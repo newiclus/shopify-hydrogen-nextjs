@@ -1,4 +1,4 @@
-export const GRAPHQL_QUERY = `
+export const getHomeDataQuery = `
   query {
     shop {
       name
@@ -13,5 +13,20 @@ export const GRAPHQL_QUERY = `
          }
        }
      }
+  }
+`;
+
+export const getMenuQuery = `
+  query Menu ($handle: String!) {
+    menu(handle: $handle) {
+      id
+      handle
+      title
+      items {
+        id
+        title
+        type
+      }
+    }
   }
 `;

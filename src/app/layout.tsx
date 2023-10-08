@@ -1,8 +1,8 @@
-
 import '@/styles/globals.css'
-
 import type { Metadata } from 'next'
-import { Provider } from './nextUIprovider';
+
+import Header from '@/components/commons/header';
+import { Provider } from '@/app/nextUIprovider';
 
 export const metadata: Metadata = {
   title: 'Shopify Store with NextJS',
@@ -14,11 +14,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
     <html lang="en" className="light">
       <body>
         <Provider>
-          {children}
+          <Header />
+          <main className="m-auto">
+            {children}
+          </main>
         </Provider>
       </body>
     </html>
