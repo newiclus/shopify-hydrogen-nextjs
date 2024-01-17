@@ -1,0 +1,16 @@
+/* styles/navigation.css */
+
+.menu_link {
+  &::before {
+    @apply bg-slate-600 w-full h-0.5 absolute left-0 bottom-0 overflow-hidden duration-200 ease-in;
+    content: "";
+    transition-property: color, transform;
+    transform: translate(-101%);
+  }
+
+  &:hover {
+    &::before {
+      transform: translate(0);
+    }
+  }
+}
