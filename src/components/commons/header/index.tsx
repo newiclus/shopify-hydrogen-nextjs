@@ -1,7 +1,8 @@
+import React from "react";
 import { Menu } from "@shopify/hydrogen-react/storefront-api-types";
 
 import { getMenu } from "@/data/api";
-import MainNav from "@/components/UI/commons/navigation";
+import MainNav from "@/components/commons/navigation";
 
 export default async function Header({
   children,

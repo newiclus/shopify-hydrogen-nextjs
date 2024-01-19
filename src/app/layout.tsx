@@ -1,12 +1,13 @@
 import "@/styles/globals.css";
-import "material-icons/iconfont/material-icons.css";
+import "material-icons/iconfont/outlined.css";
 
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 
-import Header from "@/components/UI/commons/header";
+import Header from "@/components/commons/header";
 import { UIProvider } from "@/app/nextUIprovider";
 import { ShopifyUIProvider } from "@/app/shopifyUIProvider";
+import Footer from "@/components/commons/footer";
 
 export const metadata: Metadata = {
   title: "Shopify Store with NextJS",
@@ -31,6 +32,7 @@ export default function RootLayout({
           <ShopifyUIProvider>
             <Header />
             <main className="m-auto">{children}</main>
+            <Footer />
           </ShopifyUIProvider>
         </UIProvider>
       </body>

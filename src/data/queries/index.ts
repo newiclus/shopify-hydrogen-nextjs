@@ -5,14 +5,24 @@ export const getHomeDataQuery = `
       description
     }
    	products(first:5) {
-       edges {
-         node {
-           id
-           title
-           description
-         }
-       }
-     }
+      edges {
+        node {
+          id
+          title
+          description
+        }
+      }
+    }
+    metaobjects(type:"main_home_banner",first:3) {
+      nodes {
+        handle
+        type
+        title: field(key: "title") { value }
+        description: field(key: "description") { value }
+        image: field(key: "image") { value }
+        cta: field(key: "cta") { value }
+      }
+    }
   }
 `;
 
