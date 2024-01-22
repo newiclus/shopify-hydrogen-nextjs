@@ -1,3 +1,5 @@
+import { MAIN_HOME_BANNER_TYPE } from "@/utils/constants";
+
 export const getHomeDataQuery = `
   query {
     shop {
@@ -13,14 +15,22 @@ export const getHomeDataQuery = `
         }
       }
     }
-    metaobjects(type:"main_home_banner",first:3) {
+    metaobjects(type:"${MAIN_HOME_BANNER_TYPE}",first:3) {
       nodes {
         handle
         type
         title: field(key: "title") { value }
         description: field(key: "description") { value }
-        image: field(key: "image") { value }
         cta: field(key: "cta") { value }
+        image: field(key: "image") {
+          reference {
+            ... on MediaImage {
+              image {
+                originalSrc
+              }
+            }
+          }        
+        }
       }
     }
   }
