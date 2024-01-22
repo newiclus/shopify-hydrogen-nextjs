@@ -10,6 +10,7 @@ import {
 
 import { dashesBySpaces } from "@/utils";
 import { AcmeLogo } from "@/components/commons/AcmeLogo";
+import ToggleTheme from "@/components/commons/toogleTheme";
 
 const MainNav: React.FC<{ menuItems: MenuItem[] }> = ({ menuItems }) => (
   <Navbar maxWidth="xl" className="py-1.5">
@@ -68,6 +69,10 @@ const MainNav: React.FC<{ menuItems: MenuItem[] }> = ({ menuItems }) => (
               shopping_bag
             </span>
           </button>
+        </NavbarItem>
+
+        <NavbarItem>
+          <ToggleTheme />
         </NavbarItem>
       </NavbarContent>
     </div>

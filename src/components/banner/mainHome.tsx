@@ -26,8 +26,8 @@ const MainHomeBanner: React.FC<Banner> = ({ items }) => {
   return (
     <section className="relative">
       <div className="absolute left-12 top-52 z-10 w-96 px-4 pt-2 pb-3 bg-slate-950/75">
-        <h1 className="text-3xl">{title.value}</h1>
-        <p className="text-lg leading-6">{description.value}</p>
+        <h1 className="text-3xl text-white">{title.value}</h1>
+        <p className="text-lg leading-6 text-white">{description.value}</p>
         {cta && (
           <Link href={cta.value} className="btn btn-primary">
             Shop Now
@@ -35,7 +35,13 @@ const MainHomeBanner: React.FC<Banner> = ({ items }) => {
         )}
       </div>
       <figure className="h-176 relative">
-        <Image src={originalSrc} alt="Banner Image" fill={true} />
+        <Image
+          src={originalSrc}
+          alt="Banner Image"
+          fill={true}
+          priority={false}
+          fetchPriority="low"
+        />
       </figure>
     </section>
   );

@@ -4,9 +4,10 @@ import "material-icons/iconfont/outlined.css";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 
-import Header from "@/components/commons/header";
 import { UIProvider } from "@/app/nextUIprovider";
 import { ShopifyUIProvider } from "@/app/shopifyUIProvider";
+import { ThemeProvider } from "@/components/context";
+import Header from "@/components/commons/header";
 import Footer from "@/components/commons/footer";
 
 export const metadata: Metadata = {
@@ -26,13 +27,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`light ${roboto.className}`}>
+    <html lang="en" className={roboto.className}>
       <body>
         <UIProvider>
           <ShopifyUIProvider>
-            <Header />
-            <main className="m-auto">{children}</main>
-            <Footer />
+            <ThemeProvider>
+              <Header />
+              <section className="m-auto">{children}</section>
+              <Footer />
+            </ThemeProvider>
           </ShopifyUIProvider>
         </UIProvider>
       </body>
