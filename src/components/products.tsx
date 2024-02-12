@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import type { Product as ProductType } from "@shopify/hydrogen-react/storefront-api-types";
 import { Button } from "@nextui-org/button";

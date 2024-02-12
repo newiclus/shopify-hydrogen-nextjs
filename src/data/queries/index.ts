@@ -15,13 +15,14 @@ export const getHomeDataQuery = `
         }
       }
     }
-    metaobjects(type:"${MAIN_HOME_BANNER_TYPE}",first:3) {
+    metaobjects(type:"${MAIN_HOME_BANNER_TYPE}", first:3) {
       nodes {
         handle
         type
         title: field(key: "title") { value }
         description: field(key: "description") { value }
         cta: field(key: "cta") { value }
+        display: field(key: "display") { value }
         image: field(key: "image") {
           reference {
             ... on MediaImage {
@@ -29,7 +30,7 @@ export const getHomeDataQuery = `
                 originalSrc
               }
             }
-          }        
+          }
         }
       }
     }

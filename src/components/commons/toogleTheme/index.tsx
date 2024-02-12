@@ -6,8 +6,10 @@ import { useTheme } from "@/components/context";
 
 const ToggleTheme: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
+
   return (
     <Switch
+      title="Toggle theme"
       checked={theme === "dark"}
       color="secondary"
       onChange={toggleTheme}
