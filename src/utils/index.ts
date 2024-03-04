@@ -1,6 +1,6 @@
 function dashesBySpaces(str: string) {
   if (typeof str !== "string") {
-    console.error("spacesByDashes: str is not a string");
+    console.error("dashesBySpaces: str is not a string");
     return "";
   }
 
