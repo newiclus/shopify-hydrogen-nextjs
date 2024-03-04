@@ -31,7 +31,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "eslint-config-prettier": "^9.1.0",
-    "jsdom": "^24.0.0",
+    "happy-dom": "^13.6.2",
     "postcss": "^8",
     "postcss-nesting": "^12.0.2",
     "tailwindcss": "^3",
