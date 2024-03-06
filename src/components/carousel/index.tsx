@@ -1,4 +1,10 @@
-import React, { Children, ReactNode, isValidElement, useState } from "react";
+import React, {
+  Children,
+  ReactNode,
+  isValidElement,
+  useState,
+  useRef,
+} from "react";
 import Image from "next/image";
 
 import {
@@ -25,7 +31,7 @@ export default function Carousel({
   className,
   settings = defaultSettings,
 }: CarouselProps) {
-  const { dots, onNext, onChange, onPrevious, loop } = {
+  const { dots, loop, speed, onNext, onChange, onPrevious } = {
     ...defaultSettings,
     ...settings,
   };
@@ -84,7 +90,8 @@ export default function Carousel({
 
       const { index } = child.props;
       const isActive = index === activeSlide.value;
-      const props = { ...child.props, isActive };
+      const activeIndex = activeSlide.value;
+      const props = { ...child.props, isActive, activeIndex, speed };
       const Child = React.cloneElement(child, props);
 
       slides.push(Child);
@@ -101,23 +108,29 @@ export default function Carousel({
         {slides}
       </div>
 
-      <button
-        className="carousel_arrow"
-        role="prevbutton"
-        onClick={handlePrev}
-        disabled={activeSlide.atStart}
-      >
-        <span className="material-icons-outlined text-3xl">arrow_back</span>
-      </button>
+      <aside className="carousel_prev_next absolute z-50 top-2 right-2">
+        <button
+          className="carousel_arrow bg-white leading-3 m-1 p-1"
+          role="prevbutton"
+          onClick={handlePrev}
+          disabled={activeSlide.atStart}
+        >
+          <span className="material-icons-outlined text-3xl text-gray-800">
+            arrow_back
+          </span>
+        </button>
 
-      <button
-        className="carousel_arrow"
-        role="nextbutton"
-        onClick={handleNext}
-        disabled={activeSlide.atEnd}
-      >
-        <span className="material-icons-outlined text-3xl">arrow_forward</span>
-      </button>
+        <button
+          className="carousel_arrow bg-white leading-3 m-1 p-1"
+          role="nextbutton"
+          onClick={handleNext}
+          disabled={activeSlide.atEnd}
+        >
+          <span className="material-icons-outlined text-3xl text-gray-800">
+            arrow_forward
+          </span>
+        </button>
+      </aside>
 
       {dots && (
         <footer className="carousel_dots">
@@ -136,14 +149,37 @@ export default function Carousel({
   );
 }
 
-const Item: React.FC<SlideItem> = ({ image, sideContent, isActive, index }) => {
+const Item: React.FC<SlideItem> = ({
+  activeIndex = 0,
+  image,
+  sideContent,
+  isActive,
+  index,
+  speed = 500,
+}) => {
+  const speedRef = useRef(`duration-${speed}`);
+  let translateClass = "-translate-x-full z-10 hidden";
+
+  const beforeActive = index === activeIndex - 1;
+  const afterActive = index === activeIndex + 1;
+
+  if (beforeActive) {
+    translateClass = "-translate-x-full z-10";
+  }
+
+  if (afterActive) {
+    translateClass = "translate-x-full z-20";
+  }
+
+  if (isActive) {
+    translateClass = "translate-x-0 z-30";
+  }
+
   return (
     <aside
-      className={`carousel_slide absolute duration-700 w-full inset-0 h-full transform ease-in-out ${
-        isActive ? "translate-x-0 z-" + 20 : "-translate-x-full z-" + 10
-      }`}
+      className={`carousel_slide absolute transform ${speedRef.current} w-full inset-0 h-full ease-in-out ${translateClass}`}
       aria-hidden={!isActive}
-      role="slide"
+      data-active={isActive}
       data-slide={index || 0}
       data-testid="carousel-slideItem"
     >
@@ -155,7 +191,7 @@ const Item: React.FC<SlideItem> = ({ image, sideContent, isActive, index }) => {
           alt="Banner Image"
           width={1600}
           height={700}
-          priority={false}
+          priority={true}
           fetchPriority="low"
         />
       )}

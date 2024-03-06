@@ -45,7 +45,7 @@ const MainHomeBanner = ({ items }: Banner) => (
             </div>
           }
         />
-      ),
+      )
     )}
     ;
   </Carousel>

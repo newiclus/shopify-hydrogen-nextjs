@@ -16,7 +16,9 @@ export type SlideItem = {
   image: string;
   sideContent?: React.ReactNode;
   isActive?: boolean;
+  activeIndex?: number;
   index?: number;
+  speed?: number;
 };
 
 export type CarouselProps = HTMLAttributes<HTMLElement> & {
