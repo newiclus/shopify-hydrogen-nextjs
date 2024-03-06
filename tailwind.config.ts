@@ -30,6 +30,9 @@ const config: Config = {
         "160": "40rem",
         "176": "44rem",
       },
+      minHeight: {
+        "1/3": "33%",
+      },
     },
   },
   darkMode: "class",

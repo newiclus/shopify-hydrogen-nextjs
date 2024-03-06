@@ -32,8 +32,8 @@ const MainHomeBanner = ({ items }: Banner) => (
           index={index}
           image={image.reference.image.originalSrc}
           sideContent={
-            <div className="absolute left-12 top-52 z-10 w-96 bg-slate-950/75 px-4 pb-3 pt-2">
-              <h1 className="text-3xl text-white">{title.value}</h1>
+            <div className="min-h-1/3 absolute left-12 top-52 z-10 w-96 bg-slate-950/50 px-6 pb-3 pt-3">
+              <h1 className="text-3xl text-white mb-2">{title.value}</h1>
               <p className="text-lg leading-6 text-white">
                 {description.value}
               </p>

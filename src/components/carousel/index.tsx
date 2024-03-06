@@ -1,10 +1,4 @@
-import React, {
-  Children,
-  ReactNode,
-  isValidElement,
-  useState,
-  useRef,
-} from "react";
+import React, { Children, ReactNode, isValidElement, useState } from "react";
 import Image from "next/image";
 
 import {
@@ -110,7 +104,9 @@ export default function Carousel({
 
       <aside className="carousel_prev_next absolute z-50 top-2 right-2">
         <button
-          className="carousel_arrow bg-white leading-3 m-1 p-1"
+          className={`carousel_arrow bg-white leading-3 m-1 p-1 ${
+            activeSlide.atStart ? "opacity-75" : ""
+          }`}
           role="prevbutton"
           onClick={handlePrev}
           disabled={activeSlide.atStart}
@@ -121,7 +117,9 @@ export default function Carousel({
         </button>
 
         <button
-          className="carousel_arrow bg-white leading-3 m-1 p-1"
+          className={`carousel_arrow bg-white leading-3 m-1 p-1 ${
+            activeSlide.atEnd ? "opacity-75" : ""
+          }`}
           role="nextbutton"
           onClick={handleNext}
           disabled={activeSlide.atEnd}
@@ -157,7 +155,6 @@ const Item: React.FC<SlideItem> = ({
   index,
   speed = 500,
 }) => {
-  const speedRef = useRef(`duration-${speed}`);
   let translateClass = "-translate-x-full z-10 hidden";
 
   const beforeActive = index === activeIndex - 1;
@@ -177,10 +174,11 @@ const Item: React.FC<SlideItem> = ({
 
   return (
     <aside
-      className={`carousel_slide absolute transform ${speedRef.current} w-full inset-0 h-full ease-in-out ${translateClass}`}
+      className={`carousel_slide absolute transform w-full inset-0 h-full ease-in-out ${translateClass}`}
       aria-hidden={!isActive}
       data-active={isActive}
       data-slide={index || 0}
+      style={{ transitionDuration: `${speed}ms` }}
       data-testid="carousel-slideItem"
     >
       <div className="carousel_slide__content">{sideContent}</div>
