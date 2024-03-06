@@ -6,12 +6,15 @@ export const getHomeDataQuery = `
       name
       description
     }
-   	products(first:5) {
+   	products(first:6) {
       edges {
         node {
           id
           title
-          description
+          featuredImage {
+            altText
+            url(transform: { maxWidth: 400, maxHeight: 400, crop: CENTER })
+          }
         }
       }
     }

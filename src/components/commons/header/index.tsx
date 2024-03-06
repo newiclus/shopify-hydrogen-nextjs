@@ -13,7 +13,7 @@ export default async function Header({
   const menu = menuData.menu as Menu;
 
   return (
-    <header id="main-header">
+    <header id="main-header" className="bg-stone-200">
       <MainNav menuItems={menu.items} />
       {children && children}
     </header>
