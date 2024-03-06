@@ -2324,16 +2324,16 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.5.1.tgz#5f1b518ec5fa54437c0b7c4a821546c64fed6922"
   integrity sha512-6i/8UoL0P5y4leBIGzvkZdS85RDMG9y1ihZzmTZQ5LdHUYmZ7pKFoj8X0236s3lusPs1Fa5HTQUpwI+UfTcmeA==
 
-"@shopify/hydrogen-react@^2023.7.4":
-  version "2023.7.4"
-  resolved "https://registry.yarnpkg.com/@shopify/hydrogen-react/-/hydrogen-react-2023.7.4.tgz#1de07dc9bee08b073bf8908ea1c99a839da8ec4b"
-  integrity sha512-GuiZ6ZIjcykr+DSwO90Q0/soNC6X4nVQh90sQJMInAwecveMbsbaHlTVWDVdgnauc8+YQuo4ZeelQrFGBSWfOA==
+"@shopify/hydrogen-react@^2024.1.1":
+  version "2024.1.1"
+  resolved "https://registry.yarnpkg.com/@shopify/hydrogen-react/-/hydrogen-react-2024.1.1.tgz#a38b7475507c0197f0ca10d364deed213cab93d9"
+  integrity sha512-3ZDTUZPauXyV6TTxSjsEd0KEybT0jDpaEaB2tPtpjq783rJ1xD+wS9sWqqaKhAY2EUngg03muZiiuBeZIbR4Fw==
   dependencies:
     "@google/model-viewer" "^1.12.1"
     "@xstate/fsm" "^2.0.0"
     "@xstate/react" "^3.2.1"
     graphql "^16.6.0"
-    type-fest "^3.6.0"
+    type-fest "^4.5.0"
     worktop "^0.7.3"
 
 "@sinclair/typebox@^0.27.8":
@@ -5570,10 +5570,10 @@ type-fest@^0.20.2:
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.20.2.tgz#1bf207f4b28f91583666cb5fbd327887301cd5f4"
   integrity sha512-Ne+eE4r0/iWnpAxD852z3A+N0Bt5RN//NjJwRd2VFHEmrywxf5vsZlh4R6lixl6B+wz/8d+maTSAkN1FIkI3LQ==
 
-type-fest@^3.6.0:
-  version "3.13.1"
-  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-3.13.1.tgz#bb744c1f0678bea7543a2d1ec24e83e68e8c8706"
-  integrity sha512-tLq3bSNx+xSpwvAJnzrK0Ep5CLNWjvFTOp71URMaAEWBfRb9nnJiBoUe0tF8bI4ZFO3omgBR6NvnbzVUT3Ly4g==
+type-fest@^4.5.0:
+  version "4.11.1"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-4.11.1.tgz#7de27117459b926cb56922a4fd565423041e06d3"
+  integrity sha512-MFMf6VkEVZAETidGGSYW2B1MjXbGX+sWIywn2QPEaJ3j08V+MwVRHMXtf2noB8ENJaD0LIun9wh5Z6OPNf1QzQ==
 
 typed-array-buffer@^1.0.0:
   version "1.0.0"
