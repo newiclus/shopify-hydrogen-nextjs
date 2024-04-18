@@ -1,6 +1,6 @@
 import React from "react";
 import type { Product as ProductType } from "@shopify/hydrogen-react/storefront-api-types";
-import { Card, CardFooter, CardBody } from "@nextui-org/card";
+import { Card, CardFooter } from "@nextui-org/card";
 import { Image } from "@nextui-org/image";
 
 export const Product = ({ product }: { product: ProductType }) => (

@@ -4,9 +4,9 @@ import "material-icons/iconfont/outlined.css";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 
-import { UIProvider } from "@/app/nextUIprovider";
-import { ShopifyUIProvider } from "@/app/shopifyUIProvider";
-import { ThemeProvider } from "@/components/context";
+import { UIProvider } from "@/providers/nextUIprovider";
+import { ShopifyUIProvider } from "@/providers/shopifyUIProvider";
+import { ThemeProvider } from "@/providers/themeUIprovider";
 import Header from "@/components/commons/header";
 import Footer from "@/components/commons/footer";
 

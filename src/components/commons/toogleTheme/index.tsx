@@ -2,7 +2,7 @@
 import React from "react";
 import { Switch } from "@nextui-org/switch";
 
-import { useTheme } from "@/components/context";
+import { useTheme } from "@/providers/themeUIprovider";
 
 const ToggleTheme: React.FC = () => {
   const { theme, toggleTheme } = useTheme();

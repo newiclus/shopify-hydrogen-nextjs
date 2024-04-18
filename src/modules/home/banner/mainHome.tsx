@@ -45,10 +45,10 @@ const MainHomeBanner = ({ items }: Banner) => (
             </div>
           }
         />
-      )
+      ),
     )}
     ;
   </Carousel>
 );
 
-export default MainHomeBanner;
+export { MainHomeBanner };

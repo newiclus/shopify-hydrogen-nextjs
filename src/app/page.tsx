@@ -1,11 +1,13 @@
-import { ScrollShadow } from "@nextui-org/react";
+import { ScrollShadow } from "@nextui-org/scroll-shadow";
 
-import { getHomeData } from "@/data/api";
-import MainHomeBanner from "@/components/banner/mainHome";
-import { Product } from "@/components/products";
+import HomeService from "@/modules/home/service";
+import { MainHomeBanner, TestimonialsBanner } from "@/modules/home/banner";
+import { Product } from "@/components/product";
+
+const homeService = new HomeService();
 
 export default async function Home() {
-  const store = await getHomeData();
+  const store = await homeService.getData();
   const {
     data: { products, metaobjects },
   } = store;
@@ -27,6 +29,12 @@ export default async function Home() {
             ))}
           </section>
         </ScrollShadow>
+      </div>
+
+      <div className="bg-stone-100 pt-6 pb-6">
+        <div className="container max-w-7xl px-6 m-auto overflow-hidden">
+          <TestimonialsBanner />
+        </div>
       </div>
     </>
   );

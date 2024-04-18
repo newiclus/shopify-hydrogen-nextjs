@@ -1,15 +1,17 @@
 import React from "react";
 import { Menu } from "@shopify/hydrogen-react/storefront-api-types";
 
-import { getMenu } from "@/data/api";
+import StoreService from "@/data/api";
 import MainNav from "@/components/commons/navigation";
+
+const storeService = new StoreService();
 
 export default async function Header({
   children,
 }: {
   children?: React.ReactNode;
 }) {
-  const { data: menuData } = await getMenu("main-menu");
+  const { data: menuData } = await storeService.getMenu();
   const menu = menuData.menu as Menu;
 
   return (

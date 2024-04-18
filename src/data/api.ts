@@ -1,63 +1,9 @@
-import {
-  getStorefrontApiUrl,
-  getPrivateTokenHeaders,
-} from "@/config/shopify-client";
-import {
-  getHomeDataQuery,
-  getMenuQuery,
-  createCartQuery,
-} from "@/data/queries";
+import shopifyAdapter from "@/config/adapter";
+import { getMenuQuery } from "@/data/query";
+import { MainMenu } from "@/data/types";
 
-export async function getHomeData() {
-  const response = await fetch(getStorefrontApiUrl(), {
-    body: JSON.stringify({
-      query: getHomeDataQuery,
-    }),
-    headers: getPrivateTokenHeaders({ buyerIp: "..." }),
-    method: "POST",
-  });
-
-  if (!response.ok) {
-    throw new Error(response.statusText);
+export default class StoreService {
+  async getMenu(): Promise<MainMenu> {
+    return shopifyAdapter.getMenu(getMenuQuery, "main-menu");
   }
-
-  return await response.json();
-}
-
-export async function getMenu(handle: string) {
-  const response = await fetch(getStorefrontApiUrl(), {
-    body: JSON.stringify({
-      query: getMenuQuery,
-      variables: {
-        handle,
-      },
-    }),
-    headers: getPrivateTokenHeaders({ buyerIp: "..." }),
-    method: "POST",
-  });
-
-  if (!response.ok) {
-    throw new Error(response.statusText);
-  }
-
-  return await response.json();
-}
-
-export async function createCart(cartInput: any) {
-  const response = await fetch(getStorefrontApiUrl(), {
-    body: JSON.stringify({
-      query: createCartQuery,
-      variables: {
-        cartInput,
-      },
-    }),
-    headers: getPrivateTokenHeaders({ buyerIp: "..." }),
-    method: "POST",
-  });
-
-  if (!response.ok) {
-    throw new Error(response.statusText);
-  }
-
-  return await response.json();
 }
