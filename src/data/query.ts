@@ -15,10 +15,12 @@ export const getMenuQuery = `
 `;
 
 export const createCartQuery = `
-  mutation cartCreate($cartInput: CartInput!) {
+  mutation CartCreate ($cartInput: CartInput!) {
     cartCreate(input: $cartInput) {
       cart {
-        id
+     	  id
+        createdAt
+        updatedAt
       }
       userErrors {
         field

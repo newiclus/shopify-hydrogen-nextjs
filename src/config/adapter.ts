@@ -47,6 +47,17 @@ class ShopifyAdapter {
 
     return await response.json();
   }
+
+  async getCart(cartQuery: string, cartId: string) {
+    const options = initOptions(cartQuery, { cartId });
+    const response = await fetch(getStorefrontApiUrl(), options);
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    return await response.json();
+  }
 }
 
 const shopifyAdapter = new ShopifyAdapter();
